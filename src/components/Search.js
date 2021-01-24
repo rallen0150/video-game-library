@@ -68,17 +68,17 @@ class Search extends Component {
     return (
       <form>
         <select value={this.state.api_cat} onChange={this.handleChange}>
-            <option value="creators">Creators</option>
-            <option value="genres">Genre</option>
             <option value="games">Games</option>
+            <option value="genres">Genre</option>
             <option value="platforms">Platform</option>
+            <option value="publishers">Publishers</option>
         </select>
         <input
           placeholder="Search for..."
           ref={input => this.search = input}
           onChange={this.handleInputChange}
         />
-        <Suggestions results={this.state.results} />
+        <Suggestions results={this.state.results} category={this.state.api_cat} />
       </form>
     )
   }

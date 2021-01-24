@@ -3,18 +3,15 @@ import axios from 'axios'
 import GameDesc from './GameDesc'
 import GameImg from './GameImage'
 import GameHeaderDesc from './GameHeaderDesc'
+import GamePlatforms from './GamePlatforms'
+import GameStore from './GameStore'
+import GameGenre from './GameGenre'
 import { useParams } from 'react-router-dom'
 
-const VideogameDetail = (props) => {
+const GenreDetail = (props) => {
     const { id } = useParams();
     const [data, setData] = useState(null)
     const [dataIsReady, setDataIsReady] = useState(false)
-    const [archiveIdentifier, setArchiveIdentifier] = useState(null)
-    const [archiveOfferAvailable, setArchiveOfferAvailable] = useState(false)
-    const [oldgameshelfIdentifier, setOldgameshelfIdentifier] = useState(null)
-    const [oldgameshelfOfferAvailable, setOldgameshelfOfferAvailable] = useState(false)
-    const [snesnowIdentifier, setSnesnowIdentifier] = useState(null)
-    const [snesnowOfferAvailable, setSnesnowOfferAvailable] = useState(false)
 
     const getRawgApi = useCallback(async () => {
         axios.get(`https://rawg.io/api/games/${id}`)
@@ -28,6 +25,7 @@ const VideogameDetail = (props) => {
         getRawgApi()
     }, [getRawgApi]);
 
+
     // Wait for the data to load, else show message of waiting for response
     if (dataIsReady) {
         return (
@@ -39,10 +37,21 @@ const VideogameDetail = (props) => {
                 <div>
                     <div className="game-detail-img" style={{ float: "left", width: "30%" }}>
                         <GameImg data={data} height={275} width={375}/>
+                        <GameGenre data={data} />
                         <GameHeaderDesc data={data} />
                     </div>
                     <div className="game-detail-desc" style={{ width: "65%", paddingLeft: "385px" }}>
                         <GameDesc data={data}/>
+                    </div>
+                </div>
+                <div className="game-detail-details">
+                    <div className="game-detail-platforms">
+                        <h4>Platforms</h4>
+                        <GamePlatforms data={data} />
+                    </div>
+                    <div className="game-detail-store">
+                        <h4>Stores</h4>
+                        <GameStore data={data} />
                     </div>
                 </div>
                 
@@ -56,5 +65,4 @@ const VideogameDetail = (props) => {
     
 }
 
-
-export default VideogameDetail
+export default GenreDetail
