@@ -28,7 +28,7 @@ class GameHeaderDesc extends Component {
                 <p><b>Publishers: </b> <span dangerouslySetInnerHTML={{ __html: publishers }}></span></p>
                 <p><b>MetaCritic: </b> {this.props.data.metacritic}</p>
                 <p><b>Rating: </b> {this.props.data.rating}/{this.props.data.rating_top}</p>
-                <p><b>Website: </b> <a href={this.props.data.website}>{this.props.data.website}</a></p>
+                <p><b>Website: </b> <a href={this.props.data.website} target="_blank">{this.props.data.website}</a></p>
             </div>
         )
     }

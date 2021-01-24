@@ -10,6 +10,8 @@ const PlatformDetail = (props) => {
     const { id } = useParams();
     const [data, setData] = useState(null)
     const [dataIsReady, setDataIsReady] = useState(false)
+    const [topgames, setTopGames] = useState(null)
+    const [topgamesIsReady, setTopGamesIsReady] = useState(false)
 
     const getRawgApi = useCallback(async () => {
         axios.get(`https://rawg.io/api/platforms/${id}`)
@@ -22,6 +24,19 @@ const PlatformDetail = (props) => {
     useEffect(() => {
         getRawgApi()
     }, [getRawgApi]);
+
+
+    const getTopGames = useCallback(async () => {
+        axios.get(`https://rawg.io/api/games?platforms=${id}&page_size=10`)
+          .then(({ topgames }) => {
+            setTopGames(topgames);
+            setTopGamesIsReady(true);
+          })
+    }, [id]);
+
+    useEffect(() => {
+        getTopGames()
+    }, [getTopGames]);
 
 
     // Wait for the data to load, else show message of waiting for response
@@ -44,7 +59,7 @@ const PlatformDetail = (props) => {
                     <h3>Add in Top Games and other stuff</h3>
                     <div className="platform-detail-topgames">
                         <p>Top 10 Games (not working yet)</p>
-                        {/* <PlatformTopGames data={data} /> */}
+                        <PlatformTopGames data={data} />
                     </div>
                 </div>
                 
