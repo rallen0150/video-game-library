@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import axios from "axios";
 import Search from './components/search/Search';
-import { Link, BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import VideogameDetail from './components/games/Videogame';
 import PlatformDetail from './components/platforms/Platform';
 import GenreDetail from './components/genres/Genre';
