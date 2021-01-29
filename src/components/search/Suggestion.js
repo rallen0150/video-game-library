@@ -7,7 +7,7 @@ const Suggestions = (props) => {
     options = props.results.map(r => (
       <a href={`/${props.category}/${r.id}`}>
         <li key={r.slug}>
-            <img src={r.background_image} height="35" width="35" />
+            <img src={r.background_image} alt={r.slug} height="35" width="35" />
             <span className="gameNameSuggestion">{r.name}</span>
         </li>
       </a>
