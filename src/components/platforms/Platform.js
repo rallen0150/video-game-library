@@ -5,13 +5,15 @@ import PlatformImg from './PlatformImage'
 import PlatformTopGames from './PlatformTopGames'
 // import GameHeaderDesc from './GameHeaderDesc'
 import { useParams } from 'react-router-dom'
+import { Container, Row, Col } from 'react-bootstrap'
+import '../../App.css'
 
 const PlatformDetail = (props) => {
     const { id } = useParams();
     const [data, setData] = useState(null)
     const [dataIsReady, setDataIsReady] = useState(false)
-    const [topgames, setTopGames] = useState(null)
-    const [topgamesIsReady, setTopGamesIsReady] = useState(false)
+    // const [topgames, setTopGames] = useState(null)
+    // const [topgamesIsReady, setTopGamesIsReady] = useState(false)
 
     const getRawgApi = useCallback(async () => {
         axios.get(`https://rawg.io/api/platforms/${id}`)
@@ -26,48 +28,52 @@ const PlatformDetail = (props) => {
     }, [getRawgApi]);
 
 
-    const getTopGames = useCallback(async () => {
-        axios.get(`https://rawg.io/api/games?platforms=${id}&page_size=10`)
-          .then(({ topgames }) => {
-            setTopGames(topgames);
-            setTopGamesIsReady(true);
-          })
-    }, [id]);
+    // const getTopGames = useCallback(async () => {
+    //     axios.get(`https://rawg.io/api/games?platforms=${id}&page_size=12`)
+    //       .then(({ topgames }) => {
+    //         setTopGames(topgames);
+    //         setTopGamesIsReady(true);
+    //       })
+    // }, [id]);
 
-    useEffect(() => {
-        getTopGames()
-    }, [getTopGames]);
+    // useEffect(() => {
+    //     getTopGames()
+    // }, [getTopGames]);
 
 
     // Wait for the data to load, else show message of waiting for response
     if (dataIsReady) {
         return (
-            <div>
-                {/* <h1>HEY {data.name}</h1>
-                <br></br>
-                <h3>I NEED TO ADD COMPONENTS FOR THE DIFFERENT INFO HERE</h3> */}
-                <h1>{data.name}</h1>
-                <div>
-                    <div className="platform-detail-img" style={{ float: "left", width: "30%" }}>
-                        <PlatformImg data={data} height={275} width={375}/>
-                    </div>
-                    <div className="platform-detail-desc" style={{ width: "65%", paddingLeft: "385px" }}>
+            <Container>
+                <Row>
+                    <Col><h1>{data.name}</h1></Col>
+                </Row>
+                <Row>
+                    <Col xs={6} md={5}>
+                        <PlatformImg data={data} height={355} width={475}/>
+                    </Col>
+                    <Col xs={12} md={7}>
                         <PlatformDesc data={data}/>
-                    </div>
-                </div>
-                <div>
-                    <h3>Add in Top Games and other stuff</h3>
-                    <div className="platform-detail-topgames">
-                        <p>Top 10 Games (not working yet)</p>
-                        <PlatformTopGames data={data} />
-                    </div>
-                </div>
-                
-            </div>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        &nbsp;
+                    </Col>
+                </Row>
+                <Row>
+                    <Col md={{ span: 8, offset: 2 }}>
+                        <h3 className="headerCenter">Top Games</h3>
+                    </Col>
+                </Row>
+                <Row>
+                    <PlatformTopGames data={data} />
+                </Row>
+            </Container>
         )
     } else {
         return (
-            <h1>Waiting</h1>
+            <h1 className="headerCenter">Waiting</h1>
         )
     }
     

@@ -35,7 +35,7 @@ const GameScreenshot = (props) => {
         return <Carousel>
                     {shots}
                     <Carousel.Item>
-                        <ReactPlayer url={video_url} muted={true} playing={true} controls={true}/>
+                        <ReactPlayer url={video_url} controls={true}/>
                     </Carousel.Item>
                 </Carousel>
     } else {

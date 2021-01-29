@@ -2,7 +2,10 @@ import React, { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 import GenreDesc from './GenreDesc'
 import GenreImg from './GenreImage'
+import GenreTopGames from './GenreTopGames'
 import { useParams } from 'react-router-dom'
+import { Container, Row, Col } from 'react-bootstrap'
+import '../../App.css'
 
 const GenreDetail = (props) => {
     const { id } = useParams();
@@ -25,28 +28,34 @@ const GenreDetail = (props) => {
     // Wait for the data to load, else show message of waiting for response
     if (dataIsReady) {
         return (
-            <div>
-                {/* <h1>HEY {data.name}</h1>
-                <br></br>
-                <h3>I NEED TO ADD COMPONENTS FOR THE DIFFERENT INFO HERE</h3> */}
-                <h1>{data.name}</h1>
-                <div>
-                    <div className="genre-detail-img" style={{ float: "left", width: "30%" }}>
-                        <GenreImg data={data} height={275} width={375}/>
-                    </div>
-                    <div className="genre-detail-desc" style={{ width: "65%", paddingLeft: "385px" }}>
+            <Container>
+                <Row>
+                    <Col><h1>{data.name}</h1></Col>
+                </Row>
+                <Row>
+                    <Col xs={6} md={5}>
+                        <GenreImg data={data} height={355} width={475}/>
+                    </Col>
+                    <Col xs={12} md={7}>
                         <GenreDesc data={data}/>
-                    </div>
-                </div>
-                <div>
-                    <h3>Add in Top Games and other stuff</h3>
-                </div>
-                
-            </div>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        &nbsp;
+                    </Col>
+                </Row>
+                <Row>
+                    <Col><h3 className="headerCenter">Top Games</h3></Col>
+                </Row>
+                <Row>
+                    <GenreTopGames data={data} />
+                </Row>
+            </Container>
         )
     } else {
         return (
-            <h1>Waiting</h1>
+            <h1 className="headerCenter">Waiting</h1>
         )
     }
     

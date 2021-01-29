@@ -7,9 +7,11 @@ import GamePlatforms from './GamePlatforms'
 import GameStore from './GameStore'
 import GameGenre from './GameGenre'
 import GameScreenshot from './GameScreenshots'
+import GameTags from './GameTags'
 import SuggestedGames from './SuggestedGame'
 import { useParams } from 'react-router-dom'
 import { Container, Row, Col } from 'react-bootstrap'
+import '../../App.css'
 
 const VideogameDetail = (props) => {
     console.log(props)
@@ -32,22 +34,28 @@ const VideogameDetail = (props) => {
 
     // Wait for the data to load, else show message of waiting for response
     if (dataIsReady) {
-        var hasVideo = (data.clip != null) ? "block" : "none";
+        var hasVideo = (data.clip != null) ? true : false;
+        console.log(hasVideo)
         return (
             <Container>
                 <Row>
                     <Col><h1>{data.name}</h1></Col>
                 </Row>
                 <Row>
-                    <Col xs={6} md={4}>
+                    <Col>
+                        <GameTags data={data} />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={6} md={5}>
                         <div className="game-detail-img">
-                            <GameImg data={data} height={275} width={375}/>
+                            <GameImg data={data} height={355} width={475}/>
                             <GameGenre data={data} />
                             <GameHeaderDesc data={data} />
                         </div>
                     </Col>
-                    <Col xs={12} md={8}>
-                        <div className="game-detail-desc" style={{ paddingLeft: "50px" }}>
+                    <Col xs={12} md={7}>
+                        <div className="detail-desc">
                             <GameDesc data={data}/>
                             <br/>
                             <h4>Systems:</h4>
@@ -58,14 +66,19 @@ const VideogameDetail = (props) => {
                         </div>
                     </Col>
                 </Row>
+                <Row><Col>&nbsp;</Col></Row>
                 <Row>
-                    <Col md={{ span: 8, offset: 2 }}>
-                        <GameScreenshot data={data.slug} video={data.clip.clip}/>
+                    <Col>
+                        {hasVideo ? (
+                            <GameScreenshot data={data.slug} video={data.clip.clip}/>
+                        ) : (
+                            <GameScreenshot data={data.slug}/>
+                        )}
                     </Col>
                 </Row>
                 <Row><Col>&nbsp;</Col></Row>
                 <Row>
-                    <Col md={{ span: 6, offset: 5 }}><h3>Suggested Games</h3></Col>
+                    <Col><h3 className="headerCenter">Suggested Games</h3></Col>
                 </Row>
                 <Row>
                     <SuggestedGames data={data} />
@@ -74,7 +87,7 @@ const VideogameDetail = (props) => {
         )
     } else {
         return (
-            <h1>Waiting</h1>
+            <h1 className="headerCenter">Waiting</h1>
         )
     }
     

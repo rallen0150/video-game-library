@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+.tagBtn {
+  cursor: default !important;
+}
+
+.headerCenter {
+  text-align: center;
+}
+
+.detail-desc {
+  padding-left: 35px;
+}
+
+.card {
+  max-height: 450px !important;
+}
+
+.mainCard {
+  max-height: 500px !important;
+}

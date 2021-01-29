@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class GenreDesc extends Component {
     render() {
         return (
-            <div dangerouslySetInnerHTML={{ __html: this.props.data.description }}></div>
+            <div className="detail-desc" dangerouslySetInnerHTML={{ __html: this.props.data.description }}></div>
         )
     }
 }

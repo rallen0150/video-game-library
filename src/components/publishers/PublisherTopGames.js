@@ -3,13 +3,13 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import TopGames from '../topGames/TopGameList'
 
-const PlatformTopGames = (props) => {
+const PublisherTopGames = (props) => {
     const { id } = useParams();
     const [data, setData] = useState(null)
     const [dataIsReady, setDataIsReady] = useState(false)
 
-    const getTopGamesPlatform = useCallback(async () => {
-        axios.get(`https://rawg.io/api/games?platforms=${id}&ordering=-rating&page_size=12`)
+    const getTopGamesPublisher = useCallback(async () => {
+        axios.get(`https://rawg.io/api/games?publishers=${id}&ordering=-rating&page_size=12`)
           .then(({ data }) => {
             setData(data);
             setDataIsReady(true);
@@ -17,13 +17,13 @@ const PlatformTopGames = (props) => {
     }, [id])
 
     useEffect(() => {
-        getTopGamesPlatform()
-    }, [getTopGamesPlatform]);
+        getTopGamesPublisher()
+    }, [getTopGamesPublisher]);
 
     
     if (dataIsReady) {
         return (
-            <TopGames data={data} />
+            <ul style={{ listStyleType: "none" }}><TopGames data={data} /></ul>
         )
     } else {
         return (
@@ -32,4 +32,4 @@ const PlatformTopGames = (props) => {
     }
 }
 
-export default PlatformTopGames
+export default PublisherTopGames

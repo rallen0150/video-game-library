@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 // import axios from "axios";
-import Search from './components/Search';
+import Search from './components/search/Search';
 import { Link, BrowserRouter, Switch, Route } from 'react-router-dom';
 import VideogameDetail from './components/games/Videogame';
 import PlatformDetail from './components/platforms/Platform';
 import GenreDetail from './components/genres/Genre';
 import PublisherDetail from './components/publishers/Publisher';
+import HomepageDetail from './components/homepage/Homepage'
+import { Container, Row, Col } from 'react-bootstrap'
 
 // import { search } from "./utils";
 // import Movies from "./Movies";
@@ -13,15 +15,17 @@ import PublisherDetail from './components/publishers/Publisher';
 class App extends Component {
   render() {
     return (
-      <div>
-        <p>
-          Need to add in Homepage Component with look of multiple info on the page
-            - maybe include top 10 of each platform or top 10 trending (if in api)
-          <Search />  
-        </p>
+      <Container>
+        <Row>
+          <Col>
+            <p style={{ float: 'right' }}>
+              <Search />  
+            </p>
+          </Col>
+        </Row>
         <BrowserRouter>
           <Switch>
-            {/* <Route exact path='/' component={Homepage} /> */}
+            <Route exact path='/' component={HomepageDetail} />
             <Route path='/games/:id' component={VideogameDetail} />
             <Route path='/platforms/:id' component={PlatformDetail} />
             <Route path='/genres/:id' component={GenreDetail} />
@@ -29,7 +33,7 @@ class App extends Component {
             {/* <Route component={Page404} /> */}
           </Switch>
         </BrowserRouter>
-      </div>
+      </Container>
     );
   }
 }
