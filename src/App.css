@@ -56,3 +56,7 @@
 .mainCard {
   max-height: 500px !important;
 }
+
+.gameNameSuggestion {
+  word-break: break-all;
+}

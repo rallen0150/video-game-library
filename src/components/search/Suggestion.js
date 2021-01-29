@@ -7,8 +7,8 @@ const Suggestions = (props) => {
     options = props.results.map(r => (
       <a href={`/${props.category}/${r.id}`}>
         <li key={r.slug}>
-            <img src={r.background_image} alt={r.slug} height="35" width="35" />
-          {r.name}
+            <img src={r.background_image} height="35" width="35" />
+            <span className="gameNameSuggestion">{r.name}</span>
         </li>
       </a>
     ))
@@ -41,7 +41,7 @@ const Suggestions = (props) => {
     ))
   }
   
-  return <ul style={{listStyleType: "none"}}>{options}</ul>
+  return <ul style={{listStyleType: "none", width: "55%"}}>{options}</ul>
 }
 
 export default Suggestions
