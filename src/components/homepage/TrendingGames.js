@@ -1,7 +1,6 @@
 import React from 'react'
 import { Card, Col } from 'react-bootstrap'
 import '../../App.css'
-import GameGenre from '../games/GameGenre'
 
 const TrendingGames = (props) => {
     console.log(props)

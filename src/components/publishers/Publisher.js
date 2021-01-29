@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
-import PublisherDesc from './PublisherDesc.js'
+// import PublisherDesc from './PublisherDesc.js'
 import PublisherImg from './PublisherImage'
 import PublisherTopGames from './PublisherTopGames'
 import { useParams } from 'react-router-dom'

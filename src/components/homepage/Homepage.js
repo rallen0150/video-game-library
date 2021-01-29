@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+// import { useParams } from 'react-router-dom'
 import { Container, Row, Col } from 'react-bootstrap'
 import TrendingGames from './TrendingGames'
 import '../../App.css'

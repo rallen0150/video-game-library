@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { Card, Carousel } from 'react-bootstrap'
+import { Carousel } from 'react-bootstrap'
 import axios from 'axios'
 import ReactPlayer from 'react-player'
 

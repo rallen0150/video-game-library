@@ -3,7 +3,7 @@ import React from 'react'
 
 const Suggestions = (props) => {
   var options = "";
-  if (props.category == "games") {
+  if (props.category === "games") {
     options = props.results.map(r => (
       <a href={`/${props.category}/${r.id}`}>
         <li key={r.slug}>
@@ -12,7 +12,7 @@ const Suggestions = (props) => {
         </li>
       </a>
     ))
-  } else if (props.category == "platforms") {
+  } else if (props.category === "platforms") {
     options = props.results.map(r => (
       <a href={`/${props.category}/${r.id}`}>
         <li key={r.slug}>
@@ -21,7 +21,7 @@ const Suggestions = (props) => {
         </li>
       </a>
     ))
-  } else if (props.category == "genres") {
+  } else if (props.category === "genres") {
     options = props.results.map(r => (
       <a href={`/${props.category}/${r.id}`}>
         <li key={r.slug}>
