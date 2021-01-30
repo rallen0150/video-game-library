@@ -8,7 +8,7 @@ const TopGames = (props) => {
         <Col md={4}>
             <a href={`/games/${r.id}`}>
                 <Card className="d-block h-100">
-                    <Card.Img variant="top" src={r.background_image} style={{ height: "60%" }} />
+                    <Card.Img variant="top" src={r.background_image !== null ? r.background_image : '/images/image-not-found.jpg'} style={{ height: "60%" }} />
                     <Card.Body>
                         <Card.Title><a href={`/games/${r.id}`}>{r.name}</a></Card.Title>
                         <Card.Text>

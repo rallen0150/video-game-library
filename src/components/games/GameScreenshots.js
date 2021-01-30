@@ -22,22 +22,26 @@ const GameScreenshot = (props) => {
     }, [getRawgApi]);
 
     if (dataIsReady) {
-        console.log(data)
-        var shots = data.results.map(r => (
+        var shots = "";
+        shots = data.results.map(r => (
             <Carousel.Item>
                 <img
-                    className="d-block w-100"
+                    className="d-block w-100 h-50"
                     src={r.image}
                     alt={`screenshot`}
                 />
             </Carousel.Item>
         ))
-        return <Carousel>
-                    {shots}
-                    <Carousel.Item>
-                        <ReactPlayer url={video_url} controls={true}/>
-                    </Carousel.Item>
-                </Carousel>
+        if (shots.length > 0) {
+            return <Carousel>
+                        {shots}
+                        <Carousel.Item>
+                            <ReactPlayer url={video_url} controls={true}/>
+                        </Carousel.Item>
+                    </Carousel>
+        } else {
+            return ""
+        }
     } else {
         return ""
     }

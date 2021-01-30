@@ -5,10 +5,10 @@ import '../../App.css'
 const TrendingGames = (props) => {
     console.log(props)
     var trendingGames = props.data.results.map(r => (
-        <Col md={6}>
+        <Col md={3}>
             <a href={`/games/${r.id}`}>
                 <Card className="d-block h-100 mainCard">
-                    <Card.Img variant="top" src={r.background_image} style={{ height: "60%" }} />
+                    <Card.Img variant="top" src={r.background_image !== null ? r.background_image : '/images/image-not-found.jpg'} style={{ height: "60%" }} />
                     <Card.Body>
                         <Card.Title>{r.name}</Card.Title>
                         <Card.Text>

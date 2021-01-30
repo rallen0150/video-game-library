@@ -21,7 +21,6 @@ const GameStore = (props) => {
     }, [getRawgApi]);
 
     if (dataIsReady) {
-        console.log(data)
         var stores = data.stores.map(r => (
             <Button variant="outline-primary" href={r.url} style={{ marginRight: "3px" }} target="_blank">{r.store.name}</Button>
         ))

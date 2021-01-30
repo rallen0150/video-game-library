@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 // import { useParams } from 'react-router-dom'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Jumbotron } from 'react-bootstrap'
 import TrendingGames from './TrendingGames'
 import '../../App.css'
+import LoadingScreen from '../loading/Loading'
+import Search from '../search/Search'
 
 const HomepageDetail = (props) => {
     const [data, setData] = useState(null)
@@ -31,18 +33,29 @@ const HomepageDetail = (props) => {
 
     if (dataIsReady) {
         return (
-            <Container>
-                <Row>
-                    <Col><h1 className="headerCenter">Top/Trending Games</h1></Col>
-                </Row>
-                <Row>
-                    <TrendingGames data={data} />
-                </Row>
-            </Container>
+            <div>
+                <Jumbotron>
+                    <Container className="jumbotron-div">
+                        <h1 style={{ textAlign: 'center', color: 'white' }}>Search Video Game</h1>
+                        <p style={{ textAlign: 'center', color: 'white' }}>You can search a video game to get the information, images and suggested games relating to the selected game.</p>
+                        <Search />
+                    </Container>
+                </Jumbotron>
+                <Container>
+                    <Row>
+                        <Col><h1 className="headerCenter">Top/Trending Games</h1></Col>
+                    </Row>
+                    <Row>
+                        <TrendingGames data={data} />
+                    </Row>
+                </Container>
+            </div>
         )
     } else {
         return (
-            <h1 className="headerCenter">Waiting</h1>
+            <Container>
+                <LoadingScreen />
+            </Container>
         )
     }
 }

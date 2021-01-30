@@ -7,6 +7,7 @@ import PlatformTopGames from './PlatformTopGames'
 import { useParams } from 'react-router-dom'
 import { Container, Row, Col } from 'react-bootstrap'
 import '../../App.css'
+import LoadingScreen from '../loading/Loading'
 
 const PlatformDetail = (props) => {
     const { id } = useParams();
@@ -73,7 +74,9 @@ const PlatformDetail = (props) => {
         )
     } else {
         return (
-            <h1 className="headerCenter">Waiting</h1>
+            <Container>
+                <LoadingScreen />
+            </Container>
         )
     }
     

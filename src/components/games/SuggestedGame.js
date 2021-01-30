@@ -22,11 +22,12 @@ const SuggestedGames = (props) => {
 
     if (dataIsReady) {
         // console.log(data)
-        var stores = data.results.map(r => (
+        var suggested;
+        suggested = data.results.map(r => (
             <Col md={4}>
                 <a  href={`/games/${r.id}`}>
                     <Card className="d-block h-100">
-                        <Card.Img variant="top" src={r.background_image} style={{ height: "45%" }} />
+                        <Card.Img variant="top" src={r.background_image !== null ? r.background_image : '/images/image-not-found.jpg'} style={{ height: "45%" }} />
                         <Card.Body>
                             <Card.Title><a href={`/games/${r.id}`}>{r.name}</a></Card.Title>
                             <Card.Text>
@@ -40,7 +41,11 @@ const SuggestedGames = (props) => {
                 </a>
             </Col>
         ))
-        return stores
+        if (suggested.length > 0) {
+            return suggested
+        } else {
+            return ""
+        }
     } else {
         return ""
     }

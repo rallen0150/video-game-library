@@ -1,47 +1,17 @@
 import React from 'react'
 
-
 const Suggestions = (props) => {
   var options = "";
-  if (props.category === "games") {
     options = props.results.map(r => (
-      <a href={`/${props.category}/${r.id}`}>
-        <li key={r.slug}>
-            <img src={r.background_image} alt={r.slug} height="35" width="35" />
-            <span className="gameNameSuggestion">{r.name}</span>
-        </li>
-      </a>
+        <a href={`/${props.category}/${r.id}`}>
+          <li key={r.slug} style={{ border: "0.5px solid black", backgroundColor: "silver" }}>
+              <img src={r.background_image !== null ? r.background_image : '/images/image-not-found.jpg'} alt={r.slug} height="35" width="35" />
+              <span className="gameNameSuggestion">{r.name}</span>
+          </li>
+        </a>      
     ))
-  } else if (props.category === "platforms") {
-    options = props.results.map(r => (
-      <a href={`/${props.category}/${r.id}`}>
-        <li key={r.slug}>
-            <img src={r.image_background} alt={r.slug} height="35" width="35" />
-          {r.name}
-        </li>
-      </a>
-    ))
-  } else if (props.category === "genres") {
-    options = props.results.map(r => (
-      <a href={`/${props.category}/${r.id}`}>
-        <li key={r.slug}>
-            <img src={r.image_background} alt={r.slug} height="35" width="35" />
-          {r.name}
-        </li>
-      </a>
-    ))
-  } else {
-    options = props.results.map(r => (
-      <a href={`/${props.category}/${r.id}`}>
-        <li key={r.slug}>
-            <img src={r.image_background} alt={r.slug} height="35" width="35" />
-          {r.name}
-        </li>
-      </a>
-    ))
-  }
   
-  return <ul style={{listStyleType: "none", width: "55%"}}>{options}</ul>
+  return <ul className="suggested-games">{options}</ul>
 }
 
 export default Suggestions
