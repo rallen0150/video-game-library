@@ -35,9 +35,11 @@ const GameScreenshot = (props) => {
         if (shots.length > 0) {
             return <Carousel>
                         {shots}
-                        <Carousel.Item>
-                            <ReactPlayer url={video_url} controls={true}/>
-                        </Carousel.Item>
+                        {video_url !== "" && video_url != null && 
+                            <Carousel.Item className="game-video" >
+                                <ReactPlayer url={video_url} controls={true}/>
+                            </Carousel.Item>
+                        }
                     </Carousel>
         } else {
             return ""

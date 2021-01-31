@@ -46,7 +46,7 @@
 }
 
 .detail-desc {
-  padding-left: 35px;
+  margin-left: 35px;
 }
 
 .card {
@@ -68,13 +68,14 @@
 
 .suggested-games {
   list-style-type: none;
-  width: 55%;
+  width: 77.75%;
   /* background-color: silver; */
   overflow-y: scroll;
   height: 225px;
   z-index: 1000;
   position: absolute;
-  top: 250px;;
+  top: 250px;
+  left: 108px;
 }
 
 .search-games {
@@ -94,4 +95,47 @@
   position: absolute;
   top: 225px;
   font-size: 55px;
+}
+
+.dv-star-rating {
+  top: 14px;
+  /* position: relative; */
+}
+
+.dv-star-rating-full-star {
+  color: #a38b00 !important;
+}
+
+.search-games-sm {
+  position: absolute;
+  top: 0px;
+  float: right;
+  right: 0px;
+  z-index:100;
+}
+
+.suggested-games-small {
+  position: absolute;
+  top: 30px;
+  right: 0px;
+  width: 375px;
+  height: 325px;
+  overflow-y: scroll;
+  list-style: none;
+  z-index: 1000;
+}
+
+.game-video {
+  position: relative;
+  left: 20%;
+  top: 0px;
+  height: 400px;
+}
+
+.game-card {
+  margin-bottom: 10px;
+}
+
+.no-score {
+  display: none;
 }

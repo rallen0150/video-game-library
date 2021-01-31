@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom'
 import { Container, Row, Col } from 'react-bootstrap'
 import '../../App.css'
 import LoadingScreen from '../loading/Loading'
+import SearchSmall from '../search/SearchSmall'
 
 const GenreDetail = (props) => {
     const { id } = useParams();
@@ -29,30 +30,31 @@ const GenreDetail = (props) => {
     // Wait for the data to load, else show message of waiting for response
     if (dataIsReady) {
         return (
-            <Container>
-                <Row>
-                    <Col><h1>{data.name}</h1></Col>
-                </Row>
-                <Row>
-                    <Col xs={6} md={5}>
-                        <GenreImg data={data} height={355} width={475}/>
-                    </Col>
-                    <Col xs={12} md={7}>
-                        <GenreDesc data={data}/>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        &nbsp;
-                    </Col>
-                </Row>
-                <Row>
-                    <Col><h3 className="headerCenter">Top Games</h3></Col>
-                </Row>
-                <Row>
-                    <GenreTopGames data={data} />
-                </Row>
-            </Container>
+            <div>
+                <SearchSmall />
+                <h1>{data.name}</h1>
+                <Container>
+                    <Row>
+                        <Col xs={6} md={5}>
+                            <GenreImg data={data} height={355} width={475}/>
+                        </Col>
+                        <Col xs={12} md={7}>
+                            <GenreDesc data={data}/>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            &nbsp;
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col><h3 className="headerCenter">Top Games</h3></Col>
+                    </Row>
+                    <Row>
+                        <GenreTopGames data={data} />
+                    </Row>
+                </Container>
+            </div>
         )
     } else {
         return (

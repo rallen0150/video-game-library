@@ -14,6 +14,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import '../../App.css'
 import LoadingScreen from '../loading/Loading'
 import JumboImg from '../jumbotron/JumboImg'
+import SearchSmall from '../search/SearchSmall'
 
 const VideogameDetail = (props) => {
     console.log(props)
@@ -41,6 +42,8 @@ const VideogameDetail = (props) => {
         return (
             <div>
                 <JumboImg image={data.background_image} alt={data.slug} />
+                {/* <input type="text" placeholder="Search Game" size="40" className="search-games-sm"/> */}
+                <SearchSmall />
                 <div className="title"><span>{data.name}</span></div>
                 <Container className="detail-container">
                     <Row>

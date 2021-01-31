@@ -23,7 +23,7 @@ const PublisherTopGames = (props) => {
     
     if (dataIsReady) {
         return (
-            <ul style={{ listStyleType: "none" }}><TopGames data={data} /></ul>
+            <TopGames data={data} />
         )
     } else {
         return (

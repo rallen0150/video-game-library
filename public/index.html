@@ -25,11 +25,17 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <style>
+      html {
+        background-color: silver;
+      }
       #root {
         background-color: silver;
       }
+      footer {
+        background-color: silver;
+      }
     </style>
-    <title>React App</title>
+    <title>Video Game Search</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -45,4 +51,14 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <footer style="text-align: center;">
+    <br>
+    <p>The games come from <a target="_blank" href="https://rawg.io/">Rawg.io</a>'s API. Visit the API documentation <a target="_blank" href="https://api.rawg.io/docs/">here</a><p>
+    <p>Copyright &copy; <span id="copyright-year"></span> Robbie Allen</p>
+  </footer>
+  <script>
+    var date = new Date();
+    var year = date.getFullYear();
+    document.getElementById('copyright-year').innerHTML = year;
+  </script>
 </html>
