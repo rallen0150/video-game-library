@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap'
 
 const GamePlatforms = (props) => {
     var platforms = props.data.platforms.map(r => (
-        <Button variant="outline-primary" href={`/platforms/${r.platform.id}`} style={{ marginRight: "3px" }}>{r.platform.name}</Button>
+        <Button variant="outline-primary" className="nes-btn" href={`/platforms/${r.platform.id}`} style={{ marginRight: "3px" }}>{r.platform.name}</Button>
     ))  
     return platforms
 }

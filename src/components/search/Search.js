@@ -66,15 +66,17 @@ class Search extends Component {
 
   render() {
     return (
-      <form>
-        <input
-          placeholder="Search Games"
-          ref={input => this.search = input}
-          onChange={this.handleInputChange}
-          className="search-games"
-        />
-        <Suggestions results={this.state.results} category={this.state.api_cat} />
-      </form>
+      <div class="nes-field">
+        <form>
+          <input
+            placeholder="Search Games"
+            ref={input => this.search = input}
+            onChange={this.handleInputChange}
+            className="search-games nes-input"
+          />
+          <Suggestions results={this.state.results} category={this.state.api_cat} />
+        </form>
+      </div>
     )
   }
 }

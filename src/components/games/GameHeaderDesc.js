@@ -24,6 +24,7 @@ class GameHeaderDesc extends Component {
             let end = "</a>";
             publishers += begin+this.props.data.publishers[x].name+end;
         }
+        
         const released_date = dateFormat(this.props.data.released, "mmmm dS, yyyy")
         return (
             <div>
@@ -49,34 +50,6 @@ class GameHeaderDesc extends Component {
                     starCount={5}
                     value={this.props.data.rating}
                 />
-                    {/* <Rating 
-                        className="dv-star-rating"
-                        start={0}
-                        end={5}
-                        step={1}
-                        fractions={100}
-                        placeholderRating={this.props.data.rating}
-                        readonly={true}
-                        emptySymbol="fa fa-star-o"
-                        fullSymbol={() => (
-                            <FontAwesomeIcon
-                                icon={faStar}
-                                style={{ color: "rgb(253, 186, 73)" }}
-                            />
-                        )}
-                        renderStarIconHalf={() => (
-                            <FontAwesomeIcon
-                              icon={faStarHalfAlt}
-                              style={{ color: "rgb(253, 186, 73)" }}
-                            />
-                        )}
-                        renderEmptyStarIcon={() => (
-                            <FontAwesomeIcon
-                              icon={faStarEmpty}
-                              style={{ color: "rgb(253, 186, 73)" }}
-                            />
-                        )}
-                    /> */}
                 </p>
                 <p><b>Website: </b> <a href={this.props.data.website} target="_blank" rel="noreferrer">{this.props.data.website}</a></p>
                 <p><b>Tags: </b> <GameTags data={this.props.data}/></p>

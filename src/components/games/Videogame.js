@@ -17,7 +17,6 @@ import JumboImg from '../jumbotron/JumboImg'
 import SearchSmall from '../search/SearchSmall'
 
 const VideogameDetail = (props) => {
-    console.log(props)
     const { id } = useParams();
     const [data, setData] = useState(null)
     const [dataIsReady, setDataIsReady] = useState(false)
@@ -38,7 +37,6 @@ const VideogameDetail = (props) => {
     // Wait for the data to load, else show message of waiting for response
     if (dataIsReady) {
         var hasVideo = (data.clip != null) ? true : false;
-        console.log(hasVideo)
         return (
             <div>
                 <JumboImg image={data.background_image} alt={data.slug} />

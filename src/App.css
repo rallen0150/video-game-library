@@ -37,8 +37,13 @@
   }
 }
 
-.tagBtn {
-  cursor: default !important;
+a {
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.nes-btn {
+  cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzElEQVRYR+2X0Q6AIAhF5f8/2jYXZkwEjNSVvVUjDpcrGgT7FUkI2D9xRfQETwNIiWO85wfINfQUEyxBG2ArsLwC0jioGt5zFcwF4OYDPi/mBYKm4t0U8ATgRm3ThFoAqkhNgWkA0jJLvaOVSs7j3qMnSgXWBMiWPXe94QqMBMBc1VZIvaTu5u5pQewq0EqNZvIEMCmxAawK0DNkay9QmfFNAJUXfgGgUkLaE7j/h8fnASkxHTz0DGIBMCnBeeM7AArpUd3mz2x3C7wADglA8BcWMZhZAAAAAElFTkSuQmCC) 14 0, pointer !important; /* needed to bring over from css */
 }
 
 .headerCenter {
@@ -74,7 +79,7 @@
   height: 225px;
   z-index: 1000;
   position: absolute;
-  top: 250px;
+  top: 275px;
   left: 108px;
 }
 
@@ -93,17 +98,18 @@
   color: white;
   background-color: black;
   position: absolute;
-  top: 225px;
-  font-size: 55px;
+  top: 185px;
+  font-size: 45px;
+  max-width: 60%;
 }
 
 .dv-star-rating {
-  top: 14px;
+  top: 9px;
   /* position: relative; */
 }
 
 .dv-star-rating-full-star {
-  color: #a38b00 !important;
+  color: #ebe527 !important;
 }
 
 .search-games-sm {
@@ -112,6 +118,7 @@
   float: right;
   right: 0px;
   z-index:100;
+  width: 375px;
 }
 
 .suggested-games-small {

@@ -3,7 +3,6 @@ import { Card, Col } from 'react-bootstrap'
 import '../../App.css'
 
 const TopGames = (props) => {
-    console.log(props)
     var topGames = props.data.results.map(r => (
         <Col md={4}>
             <a href={`/games/${r.id}`}>
@@ -12,7 +11,7 @@ const TopGames = (props) => {
                     <Card.Body>
                         <Card.Title><a href={`/games/${r.id}`}>{r.name}</a></Card.Title>
                         <Card.Text>
-                            {/* <p dangerouslySetInnerHTML={{ __html: r.short_description }} style={{ height: "100px", overflow: "scroll" }}></p> */}
+                            {/* <p dangerouslySetInnerHTML={{ __html: r.short_description }} style={{ height: "100px", overflowY: "scroll" }}></p> */}
                             <p>{r.rating}/5</p>
                         </Card.Text>
                     </Card.Body>

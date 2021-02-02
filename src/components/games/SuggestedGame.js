@@ -31,7 +31,7 @@ const SuggestedGames = (props) => {
                         <Card.Body>
                             <Card.Title><a href={`/games/${r.id}`}>{r.name}</a></Card.Title>
                             <Card.Text>
-                                <div className="h-100" style={{ maxHeight: "165px", overflow: "scroll" }}>
+                                <div className="h-100" style={{ maxHeight: "130px", overflowY: "scroll" }}>
                                     <p dangerouslySetInnerHTML={{ __html: r.short_description }}></p>
                                     <p>{r.rating}/5</p>
                                 </div>
