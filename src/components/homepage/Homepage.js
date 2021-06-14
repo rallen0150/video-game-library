@@ -20,7 +20,7 @@ const HomepageDetail = (props) => {
     var date2 = pastYear+"-"+month+"-"+day;
 
     const getData = useCallback(async () => {
-        axios.get(`https://rawg.io/api/games?dates=${date2},${date1}&ordering=-added`)
+        axios.get(`https://rawg.io/api/games?dates=${date2},${date1}&ordering=-added&key=${process.env.REACT_APP_RAWG_KEY}`)
           .then(({ data }) => {
             setData(data);
             setDataIsReady(true);

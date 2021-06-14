@@ -9,7 +9,7 @@ const PlatformTopGames = (props) => {
     const [dataIsReady, setDataIsReady] = useState(false)
 
     const getTopGamesPlatform = useCallback(async () => {
-        axios.get(`https://rawg.io/api/games?platforms=${id}&ordering=-rating&page_size=12`)
+        axios.get(`https://rawg.io/api/games?platforms=${id}&ordering=-rating&page_size=12&key=${process.env.REACT_APP_RAWG_KEY}`)
           .then(({ data }) => {
             setData(data);
             setDataIsReady(true);

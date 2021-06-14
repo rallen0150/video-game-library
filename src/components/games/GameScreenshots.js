@@ -10,7 +10,7 @@ const GameScreenshot = (props) => {
     const [dataIsReady, setDataIsReady] = useState(false)
 
     const getRawgApi = useCallback(async () => {
-        axios.get(`https://rawg.io/api/games/${slug}/screenshots`)
+        axios.get(`https://rawg.io/api/games/${slug}/screenshots?key=${process.env.REACT_APP_RAWG_KEY}`)
           .then(({ data }) => {
             setData(data);
             setDataIsReady(true);
@@ -26,7 +26,7 @@ const GameScreenshot = (props) => {
         shots = data.results.map(r => (
             <Carousel.Item>
                 <img
-                    className="d-block w-100 h-50"
+                    className="w-100 h-50"
                     src={r.image}
                     alt={`screenshot`}
                 />

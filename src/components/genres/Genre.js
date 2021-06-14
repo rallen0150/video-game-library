@@ -15,7 +15,7 @@ const GenreDetail = (props) => {
     const [dataIsReady, setDataIsReady] = useState(false)
 
     const getRawgApi = useCallback(async () => {
-        axios.get(`https://rawg.io/api/genres/${id}`)
+        axios.get(`https://rawg.io/api/genres/${id}?key=${process.env.REACT_APP_RAWG_KEY}`)
           .then(({ data }) => {
             setData(data);
             setDataIsReady(true);

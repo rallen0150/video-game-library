@@ -9,7 +9,7 @@ const SuggestedGames = (props) => {
     const [dataIsReady, setDataIsReady] = useState(false)
 
     const getRawgApi = useCallback(async () => {
-        axios.get(`https://rawg.io/api/games/${slug}/suggested?page_size=12`)
+        axios.get(`https://rawg.io/api/games/${slug}/suggested?page_size=12&key=${process.env.REACT_APP_RAWG_KEY}`)
           .then(({ data }) => {
             setData(data);
             setDataIsReady(true);
@@ -26,7 +26,7 @@ const SuggestedGames = (props) => {
         suggested = data.results.map(r => (
             <Col md={4} className="game-card">
                 <a  href={`/games/${r.id}`}>
-                    <Card className="d-block h-100">
+                    <Card className="h-100">
                         <Card.Img variant="top" src={r.background_image !== null ? r.background_image : '/images/image-not-found.jpg'} style={{ height: "45%" }} />
                         <Card.Body>
                             <Card.Title><a href={`/games/${r.id}`}>{r.name}</a></Card.Title>

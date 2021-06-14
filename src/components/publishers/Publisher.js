@@ -15,7 +15,7 @@ const PublisherDetail = (props) => {
     const [dataIsReady, setDataIsReady] = useState(false)
 
     const getRawgApi = useCallback(async () => {
-        axios.get(`https://rawg.io/api/publishers/${id}`)
+        axios.get(`https://rawg.io/api/publishers/${id}?key=${process.env.REACT_APP_RAWG_KEY}`)
           .then(({ data }) => {
             setData(data);
             setDataIsReady(true);

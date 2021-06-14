@@ -56,6 +56,7 @@ a {
 
 .card {
   max-height: 450px !important;
+  overflow: scroll;
 }
 
 /* .mainCard {

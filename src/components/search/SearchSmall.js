@@ -30,7 +30,7 @@ class SearchSmall extends Component {
 
   getInfo = () => {
     //   console.log(this.state.query);
-    axios.get(`https://rawg.io/api/${this.state.api_cat}?search=${this.state.query}`)
+    axios.get(`https://rawg.io/api/${this.state.api_cat}?search=${this.state.query}&key=${process.env.REACT_APP_RAWG_KEY}`)
       .then(({ data }) => {
         //   console.log(data.results);
         this.setState({
