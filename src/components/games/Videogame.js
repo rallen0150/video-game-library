@@ -8,7 +8,7 @@ import GameStore from './GameStore'
 import GameGenre from './GameGenre'
 import GameScreenshot from './GameScreenshots'
 // import GameTags from './GameTags'
-import SuggestedGames from './SuggestedGame'
+// import SuggestedGames from './SuggestedGame'
 import { useParams } from 'react-router-dom'
 import { Container, Row, Col } from 'react-bootstrap'
 import '../../App.css'
@@ -75,12 +75,12 @@ const VideogameDetail = (props) => {
                         </Col>
                     </Row>
                     <Row><Col>&nbsp;</Col></Row>
-                    <Row>
+                    {/* <Row>
                         <Col><h3 className="headerCenter">Suggested Games</h3></Col>
                     </Row>
                     <Row>
                         <SuggestedGames data={data} />
-                    </Row>
+                    </Row> */}
                 </Container>
             </div>
         )
