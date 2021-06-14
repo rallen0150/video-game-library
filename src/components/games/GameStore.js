@@ -22,7 +22,7 @@ const GameStore = (props) => {
 
     if (dataIsReady) {
         var stores = data.stores.map(r => (
-            <Button variant="outline-primary" className="nes-btn" href={r.url} style={{ marginRight: "3px" }} target="_blank">{r.store.name}</Button>
+            <Button variant="outline-primary" className="nes-btn" href={`http://${r.store.domain}`} style={{ marginRight: "3px" }} target="_blank">{r.store.name}</Button>
         ))
         return stores
     } else {
